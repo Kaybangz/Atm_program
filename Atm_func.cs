@@ -1,19 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Atm_program
 {
     public class Atm_func
     {
         protected decimal _accountBalance = 30000;
-
-        public bool _endAtmProgram = false;
-
 
 
         public decimal Deposit(decimal amountInput)
@@ -46,10 +38,12 @@ namespace Atm_program
                 {
                     case "0":
                         EnglishLanguage eng = new EnglishLanguage();
+
                         eng.welcomeMessage();
                         eng.enterPinPrompt();
 
                     int _userPin = Convert.ToInt32(Console.ReadLine());
+
 
                     if(_userPin.ToString().Length > 4)
                     {
@@ -104,7 +98,7 @@ namespace Atm_program
 
                             decimal amountToWithdraw = Convert.ToDecimal(Console.ReadLine());
 
-                            if(_accountBalance <= 0)
+                            if(_accountBalance <= 0 || amountToWithdraw > _accountBalance)
                             {
                                 eng.insufficientBalance();
                                 break;
@@ -125,7 +119,7 @@ namespace Atm_program
 
                             int recipient = Convert.ToInt32(Console.ReadLine());
 
-                            if (_accountBalance <= 0)
+                            if (_accountBalance <= 0 || amountToTransfer > _accountBalance)
                             {
                                 eng.insufficientBalance();
                                 break;
@@ -209,7 +203,7 @@ namespace Atm_program
 
                             decimal amountToWithdraw = Convert.ToDecimal(Console.ReadLine());
 
-                            if (_accountBalance <= 0)
+                            if (_accountBalance <= 0 || amountToWithdraw > _accountBalance)
                             {
                                 pidg.insufficientBalance();
                                 break;
@@ -230,7 +224,7 @@ namespace Atm_program
 
                             int recipient = Convert.ToInt32(Console.ReadLine());
 
-                            if (_accountBalance <= 0)
+                            if (_accountBalance <= 0 || amountToTransfer > _accountBalance)
                             {
                                 pidg.insufficientBalance();
                                 break;
@@ -313,7 +307,7 @@ namespace Atm_program
 
                             decimal amountToWithdraw = Convert.ToDecimal(Console.ReadLine());
 
-                            if (_accountBalance <= 0)
+                            if (_accountBalance <= 0 || amountToWithdraw > _accountBalance)
                             {
                                 igbo.insufficientBalance();
                                 break;
@@ -334,7 +328,7 @@ namespace Atm_program
 
                             int recipient = Convert.ToInt32(Console.ReadLine());
 
-                            if (_accountBalance <= 0)
+                            if (_accountBalance <= 0 || amountToTransfer > _accountBalance)
                             {
                                 igbo.insufficientBalance();
                                 break;
@@ -357,7 +351,9 @@ namespace Atm_program
                     break;
     
                     default:
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Please read and follow the prompt carefully");
+                        Console.ForegroundColor = ConsoleColor.White;
                         break;
                 }
         }

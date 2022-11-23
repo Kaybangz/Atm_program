@@ -162,7 +162,7 @@ namespace Atm_program
 
         public void incorrectOptionSelect()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nPlease read and follow the prompts carefully");
             Console.ForegroundColor = ConsoleColor.White;
         }
@@ -224,7 +224,7 @@ namespace Atm_program
 
         public void recipientPrompt()
         {
-            Console.WriteLine("\nEnter account number of person way you wan transfer the money give: ");
+            Console.WriteLine("\nEnter akant number of person way you wan transfer the money give: ");
         }
 
         public void pinSaved()
@@ -287,7 +287,7 @@ namespace Atm_program
 
         public void incorrectOptionSelect()
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("\nAbeg, try calm down read the instructions wella");
             Console.ForegroundColor = ConsoleColor.White;
         }
