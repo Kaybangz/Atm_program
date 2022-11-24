@@ -8,11 +8,6 @@ namespace Atm_program
         protected decimal _accountBalance = 30000;
 
 
-        public decimal Deposit(decimal amountInput)
-        {
-            return _accountBalance += amountInput;
-        }
-
         public decimal Withdraw(decimal amountInput)
         {
             return _accountBalance -= amountInput;
@@ -83,13 +78,7 @@ namespace Atm_program
                     switch (transactionChoice)
                     {
                         case "0":
-                            eng.depositPrompt();
-
-                            decimal amountToDeposit = Convert.ToDecimal(Console.ReadLine());
-
-                            Deposit(amountToDeposit);
-
-                            eng.depositSuccessful(amountToDeposit, _accountBalance);
+                            
                             break;
 
 
@@ -192,7 +181,7 @@ namespace Atm_program
 
                             decimal amountToDeposit = Convert.ToDecimal(Console.ReadLine());
 
-                            Deposit(amountToDeposit);
+                           
 
                             pidg.depositSuccessful(amountToDeposit, _accountBalance);
                             break;
@@ -295,8 +284,6 @@ namespace Atm_program
                             igbo.depositPrompt();
 
                             decimal amountToDeposit = Convert.ToDecimal(Console.ReadLine());
-
-                            Deposit(amountToDeposit);
 
                             igbo.depositSuccessful(amountToDeposit, _accountBalance);
                             break;
