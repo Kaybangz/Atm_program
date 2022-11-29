@@ -10,27 +10,26 @@ public class IgboLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
 {
     public void welcomeMessage()
     {
-        Console.WriteLine("\n**********Nnọọ na mmemme ATM nke Keleb**********");
+        Console.WriteLine("\nNnọọ na mmemme GENESYS BANK ATM");
     }
 
     public void enterPinPrompt()
     {
-        Console.WriteLine("\nBiko tinye ntụtụ ọnụọgụ anọ maka kaadị gị: ");
-    }
-
-    public void enterSavedPinPrompt()
-    {
-        Console.WriteLine("\nBiko tinye ntụtụ gị: ");
+        Console.WriteLine("\nJiri pin '6653' nke ndabara ka ịga n'ihu: ");
     }
 
     public void transactionPrompt()
     {
-        Console.WriteLine("\nKedu azụmahịa ị ga-achọ ime: \n0: lelee nguzozi akaụntụ gị \t1: Wepụ ego \n2: Nyefee ego");
+        Console.WriteLine("\nKedu azụmahịa ị ga-achọ ime:" +
+            " \n0 => lelee nguzozi akaụntụ gị " +
+            "\t1 => Wepụ ego \n2 => Nyefee ego " +
+            "\t3 => Gbanwee asụsụ \n4 => Zipu oge ikuku \t5 => Ụzọ ọpụpụ \n");
     }
 
-    public void depositPrompt()
+
+    public void mainMenuPrompt()
     {
-        Console.WriteLine("\nTinye ego ị ga-achọ itinye: ");
+        Console.Write("Pịa 'Y' ka ịlaghachi na menu isi yana 'N' ka ịkwụsị mmemme: ");
     }
 
 
@@ -57,17 +56,10 @@ public class IgboLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
     }
 
 
-    public void transferSuccessful(decimal transferredAmt, int recipient, decimal currentBalance)
+    public void transferSuccessful(decimal transferredAmt, long recipient, decimal currentBalance)
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\nỌnụ ego ebufere: {transferredAmt} \nOnye nnata: {recipient} \nNtụle ugbu a: {currentBalance}");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-    public void depositSuccessful(decimal amount, decimal currentBalance)
-    {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"\nEgo {amount} etinyela ego nke ọma \nNtụle ugbu a: {currentBalance} ");
         Console.ForegroundColor = ConsoleColor.White;
     }
 
@@ -78,6 +70,13 @@ public class IgboLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
         Console.ForegroundColor = ConsoleColor.White;
     }
 
+    public void rechargeSuccessful(decimal transferredAmt, long recipient, decimal currentBalance)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"\nNkwalite oge ikuku: {transferredAmt} \nonye nnata: +234{recipient} \nNhazi ugbu a: {currentBalance}");
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
     public void pinNaN()
     {
         Console.ForegroundColor = ConsoleColor.Red;
@@ -85,20 +84,7 @@ public class IgboLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
         Console.ForegroundColor = ConsoleColor.White;
     }
 
-    public void pinTooLong()
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nỊ nwere ike itinye naanị ọnụọgụ anọ kacha");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-
-    public void pinTooShort()
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nỊ nwere ike itinye opekempe nke ọnụọgụ anọ");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
+  
 
     public void incorrectPin()
     {
@@ -126,6 +112,23 @@ public class IgboLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nTinye ego bara uru.");
         Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public void incorrectRecipient()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\nTinye nọmba akaụntụ dị irè maka nnata");
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public void airtimeAmountPrompt()
+    {
+        Console.Write("\nTinye oge ikuku: ");
+    }
+
+    public void airtimeRecipientPrompt()
+    {
+        Console.Write("Tinye nọmba ekwentị nnata: ");
     }
 }
 

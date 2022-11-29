@@ -12,36 +12,36 @@ namespace Atm_program
 
         void enterPinPrompt();
 
-        void enterSavedPinPrompt();
-
         void transactionPrompt();
+
+        void mainMenuPrompt();
 
         void withdrawPrompt();
 
         void transferPrompt();
 
         void recipientPrompt();
+       
 
+        void airtimeAmountPrompt();
+
+        void airtimeRecipientPrompt();
     }
 
     internal interface ISuccessMessages
     {
         void pinSaved();
 
-        void transferSuccessful(decimal transferredAmt, int recipient, decimal balance);
+        void transferSuccessful(decimal transferredAmt, long recipient, decimal balance);
 
         void withdrawalSuccessful(decimal amount, decimal balance);
+
+        void rechargeSuccessful(decimal amount, long recipient, decimal balance);
     }
 
 
     internal interface IErrorMessages
     {
-        void pinNaN();
-
-        void pinTooLong();
-
-        void pinTooShort();
-
         void incorrectPin();
 
         void incorrectOptionSelect();
@@ -49,6 +49,8 @@ namespace Atm_program
         void insufficientBalance();
 
         void invalidNumber();
+
+        void incorrectRecipient();
     }
 
 }

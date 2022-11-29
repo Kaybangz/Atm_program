@@ -7,29 +7,26 @@ public class PidginLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
 {
     public void welcomeMessage()
     {
-        Console.WriteLine("\n**********Welcome to Caleb ATM Program**********");
+        Console.WriteLine("\nWELCOME TO GENESYS BANK ATM PROGRAM");
     }
 
     public void enterPinPrompt()
     {
-        Console.WriteLine("\nAbeg enter four digits way you go use as pin for your card: ");
-    }
-
-    public void enterSavedPinPrompt()
-    {
-        Console.WriteLine("\nAbeg enter your pin to continue the transaction: ");
+        Console.WriteLine("\nUse '6653' as your default pin to continue: ");
     }
 
     public void transactionPrompt()
     {
-        Console.WriteLine("\nWhich transaction you go like carry out today: \n0: Check akant balance \t1: Withdraw funds \n2: Transfer funds");
+        Console.WriteLine("\nWhich transaction you go like carry out today?: " +
+            "\n0 => Check akant balance " +
+            "\t1 => Withdraw funds \n2 => Transfer funds " +
+            "\t3 => Change language \n4 => Send airtime \t5 => Comot\n");
     }
 
-    public void depositPrompt()
+    public void mainMenuPrompt()
     {
-        Console.WriteLine("\nEnter how much you go like deposit: ");
+        Console.Write("Press 'Y' make you go back to main menu and 'N' to end program: ");
     }
-
 
     public void withdrawPrompt()
     {
@@ -54,7 +51,7 @@ public class PidginLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
     }
 
 
-    public void transferSuccessful(decimal transferredAmt, int recipient, decimal currentBalance)
+    public void transferSuccessful(decimal transferredAmt, long recipient, decimal currentBalance)
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\nAmount transferred: {transferredAmt} \nRecipient: {recipient} \nCurrent Balance: {currentBalance}");
@@ -75,25 +72,17 @@ public class PidginLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
         Console.ForegroundColor = ConsoleColor.White;
     }
 
+    public void rechargeSuccessful(decimal transferredAmt, long recipient, decimal currentBalance)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"\nAirtime top up: {transferredAmt} \nRecipient: +234{recipient} \nCurrent Balance: {currentBalance}");
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
     public void pinNaN()
     {
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nNa only number you fit use as pin");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-    public void pinTooLong()
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nThe highest way you fit enter na four numbers as your pin");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
-
-    public void pinTooShort()
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nThe lowest way you fit enter na four numbers as your pin");
         Console.ForegroundColor = ConsoleColor.White;
     }
 
@@ -123,5 +112,22 @@ public class PidginLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nAbeg enter correct number, no dy do like that");
         Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public void incorrectRecipient()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\nEnter better akant number for recipient");
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public void airtimeAmountPrompt()
+    {
+        Console.Write("\nEnter the airtime amount: ");
+    }
+
+    public void airtimeRecipientPrompt()
+    {
+        Console.Write("Enter the recipient phone number: ");
     }
 }

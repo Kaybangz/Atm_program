@@ -6,11 +6,11 @@ namespace Atm_program
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8; 
 
             Atm_func atm = new Atm_func();
 
-            atm.RunProgram();
-            
+            atm.RunAtmProgram();
         }
     }
 }

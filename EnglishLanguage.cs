@@ -7,22 +7,25 @@ public class EnglishLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessage
 {
     public void welcomeMessage()
     {
-        Console.WriteLine("\n**********Welcome to Caleb's ATM Program**********");
+        Console.WriteLine("\nWELCOME TO THE GENESYS BANK ATM PROGRAM");
     }
 
     public void enterPinPrompt()
     {
-        Console.WriteLine("\nPlease enter a four-digit numeric pin for your card: ");
-    }
-
-    public void enterSavedPinPrompt()
-    {
-        Console.WriteLine("\nPlease enter your pin to carry out a transaction: ");
+        Console.WriteLine("\nUse the default pin '6653' to continue: ");
     }
 
     public void transactionPrompt()
     {
-        Console.WriteLine("\nWhat transaction would you like to carry out: \n0: Check account balance \t1: Withdraw funds \n2: Transfer funds");
+        Console.WriteLine("\nWhat transaction would you like to carry out:" +
+            " \n0 => Check account balance \t1 => Withdraw funds " +
+            "\n2 => Transfer funds \t\t3 => Change language \n4 => Send airtime " +
+            "\t\t5 => Exit\n");
+    }
+
+    public void mainMenuPrompt()
+    {
+        Console.Write("Press 'Y' to return to main menu and 'N' to end program: ");
     }
 
 
@@ -50,24 +53,24 @@ public class EnglishLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessage
     }
 
 
-    public void transferSuccessful(decimal transferredAmt, int recipient, decimal currentBalance)
+    public void transferSuccessful(decimal transferredAmt, long recipient, decimal currentBalance)
     {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"\nAmount transferred: {transferredAmt} \nRecipient: {recipient} \nCurrent Balance: {currentBalance}");
         Console.ForegroundColor = ConsoleColor.White;
     }
 
-    public void depositSuccessful(decimal amount, decimal currentBalance)
-    {
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"\nThe amount of {amount} has been deposited successfully \nCurrent balance: {currentBalance} ");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
-
     public void withdrawalSuccessful(decimal amount, decimal currentBalance)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"\nThe amount of {amount} has been withdrawn successfully \nCurrent balance: {currentBalance} ");
+        Console.WriteLine($"\nThe amount of {amount} has been withdrawn successfully \nCurrent balance: {currentBalance} \n");
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public void rechargeSuccessful(decimal transferredAmt, long recipient, decimal currentBalance)
+    {
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"\nAirtime top up: {transferredAmt} \nRecipient: +234{recipient} \nCurrent Balance: {currentBalance}");
         Console.ForegroundColor = ConsoleColor.White;
     }
 
@@ -78,20 +81,7 @@ public class EnglishLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessage
         Console.ForegroundColor = ConsoleColor.White;
     }
 
-    public void pinTooLong()
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nYou can only enter a maximum of four digits");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
 
-
-    public void pinTooShort()
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nYou can only enter a minimum of four digits");
-        Console.ForegroundColor = ConsoleColor.White;
-    }
 
     public void incorrectPin()
     {
@@ -119,5 +109,23 @@ public class EnglishLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessage
         Console.ForegroundColor = ConsoleColor.Red;
         Console.WriteLine("\nEnter a valid amount.");
         Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public void incorrectRecipient()
+    {
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("\nEnter a valid account number for recipient");
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
+
+    public void airtimeAmountPrompt()
+    {
+        Console.Write("\nEnter airtime amount: ");
+    }
+
+    public void airtimeRecipientPrompt()
+    {
+        Console.Write("Enter recipient phone number: ");
     }
 }
