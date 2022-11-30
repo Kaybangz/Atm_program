@@ -107,7 +107,7 @@ public class EnglishLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessage
     public void invalidNumber()
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nEnter a valid amount.");
+        Console.WriteLine("\nPlease enter valid inputs.\n");
         Console.ForegroundColor = ConsoleColor.White;
     }
 

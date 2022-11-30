@@ -20,7 +20,7 @@ public class PidginLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
         Console.WriteLine("\nWhich transaction you go like carry out today?: " +
             "\n0 => Check akant balance " +
             "\t1 => Withdraw funds \n2 => Transfer funds " +
-            "\t3 => Change language \n4 => Send airtime \t5 => Comot\n");
+            "\t\t3 => Change language \n4 => Send airtime \t\t5 => Comot\n");
     }
 
     public void mainMenuPrompt()
@@ -54,7 +54,7 @@ public class PidginLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
     public void transferSuccessful(decimal transferredAmt, long recipient, decimal currentBalance)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"\nAmount transferred: {transferredAmt} \nRecipient: {recipient} \nCurrent Balance: {currentBalance}");
+        Console.WriteLine($"\nAmount transferred: {transferredAmt} \nRecipient: {recipient} \nCurrent Balance: {currentBalance}\n");
         Console.ForegroundColor = ConsoleColor.White;
     }
 
@@ -110,7 +110,7 @@ public class PidginLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
     public void invalidNumber()
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nAbeg enter correct number, no dy do like that");
+        Console.WriteLine("\nAbeg enter correct inputs, no dy do like that\n");
         Console.ForegroundColor = ConsoleColor.White;
     }
 

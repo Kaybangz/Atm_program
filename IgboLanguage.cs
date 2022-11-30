@@ -23,7 +23,7 @@ public class IgboLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
         Console.WriteLine("\nKedu azụmahịa ị ga-achọ ime:" +
             " \n0 => lelee nguzozi akaụntụ gị " +
             "\t1 => Wepụ ego \n2 => Nyefee ego " +
-            "\t3 => Gbanwee asụsụ \n4 => Zipu oge ikuku \t5 => Ụzọ ọpụpụ \n");
+            "\t\t3 => Gbanwee asụsụ \n4 => Zipu oge ikuku \t\t5 => Ụzọ ọpụpụ \n");
     }
 
 
@@ -59,7 +59,7 @@ public class IgboLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
     public void transferSuccessful(decimal transferredAmt, long recipient, decimal currentBalance)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"\nỌnụ ego ebufere: {transferredAmt} \nOnye nnata: {recipient} \nNtụle ugbu a: {currentBalance}");
+        Console.WriteLine($"\nỌnụ ego ebufere: {transferredAmt} \nOnye nnata: {recipient} \nNtụle ugbu a: {currentBalance}\n");
         Console.ForegroundColor = ConsoleColor.White;
     }
 
@@ -110,7 +110,7 @@ public class IgboLanguage : ILanguagePrompts, IErrorMessages, ISuccessMessages
     public void invalidNumber()
     {
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.WriteLine("\nTinye ego bara uru.");
+        Console.WriteLine("\nBiko tinye ndenye ziri ezi.\n");
         Console.ForegroundColor = ConsoleColor.White;
     }
 
